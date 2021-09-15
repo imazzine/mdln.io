@@ -1,5 +1,12 @@
 import { createIntl, createIntlCache } from "@formatjs/intl";
-import messages from "./messages";
+import formatMessages from "../helpers/intl/formatMessages";
+import CLI_ERR from "./messages/CLI_ERR";
+import CLI from "./messages/CLI";
+
+const messages = formatMessages({
+  ...CLI,
+  ...CLI_ERR,
+});
 
 const cache = createIntlCache();
 const intl = createIntl(

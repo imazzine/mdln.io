@@ -2,11 +2,13 @@ import { jest } from "@jest/globals";
 import * as process from "process";
 import { stdout, stderr } from "process";
 import { readFileSync } from "fs";
-import * as regular_import from "./CLI";
-import CLI from "./CLI";
+
 import Errors from "../../enums/Errors";
 import { intl, messages } from "../../intl";
 import resolveIoPath from "../../helpers/paths/resolveIoPath";
+
+import * as regular_import from "./CLI";
+import CLI from "./CLI";
 
 const pth = resolveIoPath("./package.json");
 const cnt = readFileSync(pth).toString();
@@ -32,19 +34,6 @@ let spyError: jest.SpyInstance<
 >;
 
 describe("CLI", () => {
-  beforeAll(() => {
-    // spyExit = jest.spyOn(process, "exit").mockImplementation((code) => {
-    //   if (code && typeof code === "number" && code > 0) {
-    //     throw new Error("exit 1");
-    //   }
-    //   throw new Error("exit 0");
-    // }) as jest.SpyInstance<never, [code?: number | undefined]>;
-  });
-
-  afterAll(() => {
-    // spyExit.mockRestore();
-  });
-
   beforeEach(() => {
     spyExit = jest.spyOn(process, "exit").mockImplementation((code) => {
       if (code && typeof code === "number" && code > 0) {
