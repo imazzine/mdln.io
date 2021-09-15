@@ -1,4 +1,4 @@
-export default function parse(obj: { [key: string]: string }): {
+export default function formatMessages(obj: { [key: string]: string }): {
   [key: string]: {
     id: string;
     defaultMessage: string;
