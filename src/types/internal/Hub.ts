@@ -1,6 +1,6 @@
 import { Node } from "mdln";
-import CLI from "../internal/CLI";
-import NI from "../internal/NI";
+import CLI from "../public/CLI";
+import NI from "./NI";
 
 class Hub extends Node {
   get cli(): CLI {
